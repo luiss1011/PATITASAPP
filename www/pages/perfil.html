@@ -1,307 +1,220 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../img/vete-logo (1).png" type="image/png">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../img/vete-logo (1).png" type="image/png" />
     <title>Veterinaria Patitas - Mi Perfil</title>
-    <meta name="description" content="Gestiona tu perfil de usuario">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../css/estilos.css">
-</head>
-<body>
-    <header class="encabezado">
-        <nav class="navbar navbar-expand-lg custom-bar ">
-            <div class="container-fluid navbarra">
-              <a class="navbar-brand" href="../#inicio"><img class="logo-imagen" src="../img/vete-logo.png" alt="logo vete"></a>
-              
-              <div class="navbar-top d-none d-lg-flex">
-                <li class="nav-item menu-item menu-item-perfil activo">
-                    <a class="nav-link" href="./perfil.html"><i class="bi bi-person-circle"></i> Perfil</a>
-                </li>
-                <li class="nav-item menu-item menu-item-logout">
-                    <a class="nav-link" href="./login.html"><i class="bi bi-box-arrow-right"></i> Cerrar Sesión</a>
-                </li>
-              </div>
+    <meta name="description" content="Gestiona tu perfil de usuario" />
 
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav menu">
-                        <li class="nav-item menu-item">
-                            <a class="nav-link" aria-current="page" href="../#inicio"><i class="bi bi-house"></i> Inicio</a>
-                        </li>
-                        <li class="nav-item menu-item">
-                            <a class="nav-link texto" href="./nosotros.html"><i class="bi bi-people"></i> Nosotros</a>
-                        </li>
-                        <li class="nav-item menu-item">
-                            <a class="nav-link" href="./productos.html"><i class="bi bi-bag"></i> Productos</a>
-                        </li>
-                        <li class="nav-item menu-item">
-                            <a class="nav-link" href="./servicios.html"><i class="bi bi-heart-pulse"></i> Servicios</a>
-                        </li>
-                        <li class="nav-item menu-item">
-                            <a class="nav-link" href="./mascotas.html"><i class="bi bi-heart"></i> Mis Mascotas</a>
-                        </li>
-                        <li class="nav-item menu-item">
-                            <a class="nav-link" href="./citas.html"><i class="bi bi-calendar-check"></i> Citas</a>
-                        </li>
-                        <li class="nav-item menu-item">
-                            <a class="nav-link" href="./pages/recordatorios.html"><i class="bi bi-bell"></i>
-                                Recordatorios</a>
-                        </li>
-                        <li class="nav-item menu-item ">
-                            <a class="nav-link" href="./contacto.html"><i class="bi bi-telephone"></i> Contacto</a>
-                        </li>
-                        <li class="nav-item menu-item menu-item-perfil activo d-lg-none">
-                            <a class="nav-link" href="./perfil.html"><i class="bi bi-person-circle"></i> Perfil</a>
-                        </li>
-                        <li class="nav-item menu-item menu-item-logout d-lg-none">
-                            <a class="nav-link" href="./login.html"><i class="bi bi-box-arrow-right"></i> Cerrar Sesión</a>
-                        </li>
-                    </ul>
-                    <div class="redes">
-                        <ul class="redes-list">   
-                            <li class="redes-item"><a target="_blank" href=""><i class="bi bi-instagram"></i></a></li> 
-                            <li class="redes-item"><a target="_blank" href=""><i class="bi bi-facebook"></i></a></li>
-                            <li class="redes-item"><a target="_blank" href=""><i class="bi bi-whatsapp"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </nav>
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="../css/estilos.css" />
+  </head>
+
+  <body>
+    <header class="encabezado">
+      <nav class="navbar navbar-expand-lg custom-bar">
+        <div class="container-fluid navbarra">
+          <a class="navbar-brand" href="../#inicio">
+            <img
+              class="logo-imagen"
+              src="../img/vete-logo.png"
+              alt="logo vete"
+            />
+          </a>
+
+          <div class="navbar-top d-none d-lg-flex">
+            <li class="nav-item menu-item menu-item-perfil activo">
+              <a class="nav-link" href="./perfil.html"
+                ><i class="bi bi-person-circle"></i> Perfil</a
+              >
+            </li>
+            <li class="nav-item menu-item menu-item-logout">
+                <a class="nav-link" href="#" onclick="cerrarSesion()">
+                  <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+                </a>
+              </li>
+          </div>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavDropdown"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav menu">
+              <li class="nav-item menu-item">
+                <a class="nav-link" href="../index.html"
+                  ><i class="bi bi-house"></i> Inicio</a
+                >
+              </li>
+              <li class="nav-item menu-item">
+                <a class="nav-link" href="./nosotros.html"
+                  ><i class="bi bi-people"></i> Nosotros</a
+                >
+              </li>
+              <li class="nav-item menu-item">
+                <a class="nav-link" href="./productos.html"
+                  ><i class="bi bi-bag"></i> Productos</a
+                >
+              </li>
+              <li class="nav-item menu-item">
+                <a class="nav-link" href="./servicios.html"
+                  ><i class="bi bi-heart-pulse"></i> Servicios</a
+                >
+              </li>
+              <li class="nav-item menu-item">
+                <a class="nav-link" href="./mascotas.html"
+                  ><i class="bi bi-heart"></i> Mis Mascotas</a
+                >
+              </li>
+              <li class="nav-item menu-item">
+                <a class="nav-link" href="./citas.html"
+                  ><i class="bi bi-calendar-check"></i> Citas</a
+                >
+              </li>
+              <li class="nav-item menu-item">
+                <a class="nav-link bi bi-bell" href="./recordatorios.html">
+                  Recordatorios
+                  <span id="contadorRecordatorios" class="badge bg-danger"
+                    >0</span
+                  >
+                </a>
+              </li>
+              <li class="nav-item menu-item">
+                <a class="nav-link" href="./contacto.html"
+                  ><i class="bi bi-telephone"></i> Contacto</a
+                >
+              </li>
+              <li class="nav-item menu-item menu-item-perfil activo d-lg-none">
+                <a class="nav-link" href="./perfil.html"
+                  ><i class="bi bi-person-circle"></i> Perfil</a
+                >
+              </li>
+              <li class="nav-item menu-item menu-item-logout">
+                <a class="nav-link" href="#" onclick="cerrarSesion()">
+                  <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </header>
 
     <section class="titulo-pagina container-fluid">
-      <div class="container align-content-center justify-content-center ">
+      <div class="container">
         <h2><i class="bi bi-person-circle"></i> Mi Perfil</h2>
       </div>
     </section>
 
     <section class="contenido-flex">
-        <section class="contenido container-xl">
-            <div class="mascotas-section loading-fade">
-                <h3><i class="bi bi-person-badge"></i> Información Personal</h3>                
-                <div class="mascota-card">
-                    <div class="mascota-card-header">
-                        <h4><i class="bi bi-person"></i> Datos del Usuario</h4>
-                        <button class="btn btn-sm btn-outline-primary" onclick="toggleEdicion()" id="btnEditar">
-                            <i class="bi bi-pencil"></i> Editar
-                        </button>
-                    </div>
-                    <div class="mascota-card-body" id="datosUsuario">
-                        <p><i class="bi bi-person-fill"></i> <strong>Nombre:</strong> <span id="nombreUsuario">Juan Pérez</span></p>
-                        <p><i class="bi bi-envelope"></i> <strong>Email:</strong> <span id="emailUsuario">juan.perez@email.com</span></p>
-                        <p><i class="bi bi-telephone"></i> <strong>Teléfono:</strong> <span id="telefonoUsuario">+52 449-123-4567</span></p>
-                        <p><i class="bi bi-geo-alt"></i> <strong>Dirección:</strong> <span id="direccionUsuario">Calle Principal 123, Ciudad</span></p>
-                        <p><i class="bi bi-calendar"></i> <strong>Miembro desde:</strong> Enero 2024</p>
-                    </div>
-                    <div class="mascota-card-body" id="formularioEdicion" style="display: none;">
-                        <form class="login-form" id="editarPerfilForm" onsubmit="guardarCambios(event)">
-                            <div class="form-group">
-                                <label for="editNombre"><i class="bi bi-person-fill"></i> Nombre</label>
-                                <input type="text" id="editNombre" value="Juan Pérez" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="editEmail"><i class="bi bi-envelope"></i> Email</label>
-                                <input type="email" id="editEmail" value="juan.perez@email.com" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="editTelefono"><i class="bi bi-telephone"></i> Teléfono</label>
-                                <input type="tel" id="editTelefono" value="+52 449-123-4567" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="editDireccion"><i class="bi bi-geo-alt"></i> Dirección</label>
-                                <input type="text" id="editDireccion" value="Calle Principal 123, Ciudad" required>
-                            </div>
-                            <div style="display: flex; gap: 0.75rem;">
-                                <button type="submit" class="login-btn" style="flex: 1;">
-                                    <i class="bi bi-check-circle"></i> Guardar Cambios
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary" onclick="cancelarEdicion()" style="flex: 1;">
-                                    <i class="bi bi-x-circle"></i> Cancelar
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+      <section class="contenido container-xl">
+        <div class="mascotas-section loading-fade">
+          <h3><i class="bi bi-person-badge"></i> Información Personal</h3>
 
-               
-
-                <h3 style="margin-top: 2rem; margin-bottom: 1.5rem;"><i class="bi bi-bell"></i> Notificaciones</h3>
-                <div class="mascota-card">
-                    <div class="mascota-card-body">
-                        <div class="form-group">
-                            <label style="display: flex; align-items: center; justify-content: space-between;">
-                                <span><i class="bi bi-bell"></i> Recordatorios de Citas</span>
-                                <input type="checkbox" checked style="width: auto;">
-                            </label>
-                        </div>
-                        <div class="form-group">
-                            <label style="display: flex; align-items: center; justify-content: space-between;">
-                                <span><i class="bi bi-envelope"></i> Notificaciones por Email</span>
-                                <input type="checkbox" checked style="width: auto;">
-                            </label>
-                        </div>
-                        <div class="form-group">
-                            <label style="display: flex; align-items: center; justify-content: space-between;">
-                                <span><i class="bi bi-phone"></i> Notificaciones Push</span>
-                                <input type="checkbox" style="width: auto;">
-                            </label>
-                        </div>
-                    </div>
-                </div>
+          <div class="mascota-card">
+            <div class="mascota-card-header">
+              <h4><i class="bi bi-person"></i> Datos del Usuario</h4>
+              <button
+                class="btn btn-sm btn-outline-primary"
+                onclick="toggleEdicion()"
+                id="btnEditar"
+              >
+                <i class="bi bi-pencil"></i> Editar
+              </button>
             </div>
-        </section>
-    </section>
-    
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../js/form-security.js"></script>
-    <script src="../js/bootstrap.bundle.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Inicializar validación en tiempo real para formulario de edición
-            if (window.FormSecurity) {
-                window.FormSecurity.initRealTimeValidation('editarPerfilForm', {
-                    editNombre: { type: 'name', required: true, label: 'Nombre' },
-                    editEmail: { type: 'email', required: true, label: 'Email' },
-                    editTelefono: { type: 'phone', required: true, label: 'Teléfono' },
-                    editDireccion: { type: 'text', required: true, label: 'Dirección', maxLength: 200 }
-                });
-            }
-            
-            // Inicializar validación para cambio de contraseña
-            const passwordForm = document.querySelector('.mascota-card form');
-            if (passwordForm && window.FormSecurity) {
-                window.FormSecurity.initRealTimeValidation(passwordForm.id || 'passwordForm', {
-                    currentPassword: { type: 'password', required: true, label: 'Contraseña actual' },
-                    newPassword: { type: 'password', required: true, label: 'Nueva contraseña' },
-                    confirmPassword: { type: 'password', required: true, label: 'Confirmar contraseña' }
-                });
-                
-                passwordForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    const validation = window.FormSecurity.validateForm(passwordForm.id || 'passwordForm', {
-                        currentPassword: { type: 'password', required: true, label: 'Contraseña actual' },
-                        newPassword: { type: 'password', required: true, label: 'Nueva contraseña' },
-                        confirmPassword: { type: 'password', required: true, label: 'Confirmar contraseña' },
-                        confirmPassword: true
-                    });
-                    
-                    if (!validation.valid) {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Error de validación',
-                            html: validation.errors.join('<br>'),
-                            confirmButtonColor: '#2C5F7C'
-                        });
-                        return;
-                    }
-                    
-                    const newPassword = document.getElementById('newPassword').value;
-                    const confirmPassword = document.getElementById('confirmPassword').value;
-                    
-                    if (newPassword !== confirmPassword) {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Error',
-                            text: 'Las contraseñas no coinciden',
-                            confirmButtonColor: '#2C5F7C'
-                        });
-                        return;
-                    }
-                    
-                    Swal.fire({
-                        icon: 'success',
-                        title: '¡Contraseña actualizada!',
-                        text: 'Tu contraseña ha sido cambiada correctamente.',
-                        confirmButtonColor: '#2C5F7C'
-                    });
-                    passwordForm.reset();
-                });
-            }
-        });
-        
-        function toggleEdicion() {
-            const datosUsuario = document.getElementById('datosUsuario');
-            const formularioEdicion = document.getElementById('formularioEdicion');
-            const btnEditar = document.getElementById('btnEditar');
-            
-            if (formularioEdicion.style.display === 'none') {
-                datosUsuario.style.display = 'none';
-                formularioEdicion.style.display = 'block';
-                btnEditar.innerHTML = '<i class="bi bi-x-circle"></i> Cancelar';
-                btnEditar.onclick = cancelarEdicion;
-            } else {
-                cancelarEdicion();
-            }
-        }
-        
-        function cancelarEdicion() {
-            const datosUsuario = document.getElementById('datosUsuario');
-            const formularioEdicion = document.getElementById('formularioEdicion');
-            const btnEditar = document.getElementById('btnEditar');
-            
-            datosUsuario.style.display = 'block';
-            formularioEdicion.style.display = 'none';
-            btnEditar.innerHTML = '<i class="bi bi-pencil"></i> Editar';
-            btnEditar.onclick = toggleEdicion;
-        }
-        
-        function guardarCambios(event) {
-            event.preventDefault();
-            
-            // Validación de seguridad
-            if (window.FormSecurity) {
-                const validation = window.FormSecurity.validateForm('editarPerfilForm', {
-                    editNombre: { type: 'name', required: true, label: 'Nombre' },
-                    editEmail: { type: 'email', required: true, label: 'Email' },
-                    editTelefono: { type: 'phone', required: true, label: 'Teléfono' },
-                    editDireccion: { type: 'text', required: true, label: 'Dirección', maxLength: 200 }
-                });
-                
-                if (!validation.valid) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Error de validación',
-                        html: validation.errors.join('<br>'),
-                        confirmButtonColor: '#2C5F7C'
-                    });
-                    return;
-                }
-            }
-            
-            const sanitize = window.FormSecurity ? window.FormSecurity.sanitizeInput : (val) => val;
-            const nombre = sanitize(document.getElementById('editNombre').value);
-            const email = sanitize(document.getElementById('editEmail').value);
-            const telefono = sanitize(document.getElementById('editTelefono').value);
-            const direccion = sanitize(document.getElementById('editDireccion').value);
-            
-            // Actualizar los valores mostrados (sanitizados)
-            document.getElementById('nombreUsuario').textContent = nombre;
-            document.getElementById('emailUsuario').textContent = email;
-            document.getElementById('telefonoUsuario').textContent = telefono;
-            document.getElementById('direccionUsuario').textContent = direccion;
-            
-            // Mostrar confirmación con SweetAlert
-            Swal.fire({
-                icon: 'success',
-                title: '¡Perfil actualizado!',
-                text: 'Tus datos han sido guardados correctamente.',
-                confirmButtonColor: '#2C5F7C',
-                timer: 2000,
-                showConfirmButton: true
-            });
-            
-            cancelarEdicion();
-        }
-    </script>
-</body>
-</html>
 
+            <div class="mascota-card-body" id="datosUsuario">
+              <p>
+                <strong>Nombre completo:</strong>
+                <span id="nombreUsuario"></span>
+              </p>
+              <p>
+                <strong>Nombre de usuario:</strong> <span id="userName"></span>
+              </p>
+              <p><strong>Email:</strong> <span id="emailUsuario"></span></p>
+              <p>
+                <strong>Teléfono:</strong> <span id="telefonoUsuario"></span>
+              </p>
+              <p>
+                <strong>Miembro desde:</strong>
+                <span id="fechaRegistro">Diciembre 2025</span>
+              </p>
+            </div>
+
+            <div
+              class="mascota-card-body"
+              id="formularioEdicion"
+              style="display: none"
+            >
+              <form
+                class="login-form"
+                id="editarPerfilForm"
+                onsubmit="guardarCambios(event)"
+              >
+                <div class="form-group">
+                  <label for="editNombre"
+                    ><i class="bi bi-person-fill"></i> Nombre completo</label
+                  >
+                  <input type="text" id="editNombre" value="" required />
+                </div>
+                <div class="form-group">
+                  <label for="editUserName"
+                    ><i class="bi bi-person-fill"></i> Nombre de usuario</label
+                  >
+                  <input type="text" id="editUserName" value="" required />
+                </div>
+                <div class="form-group">
+                  <label for="editEmail"
+                    ><i class="bi bi-envelope"></i> Email</label
+                  >
+                  <input type="email" id="editEmail" value="" required />
+                </div>
+                <div class="form-group">
+                  <label for="editTelefono"
+                    ><i class="bi bi-telephone"></i> Teléfono</label
+                  >
+                  <input type="tel" id="editTelefono" value="" required />
+                </div>
+                <div style="display: flex; gap: 0.75rem">
+                  <button type="submit" class="login-btn" style="flex: 1">
+                    <i class="bi bi-check-circle"></i> Guardar Cambios
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-outline-secondary"
+                    onclick="cancelarEdicion()"
+                    style="flex: 1"
+                  >
+                    <i class="bi bi-x-circle"></i> Cancelar
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/config.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/perfil.js"></script>
+  </body>
+</html>
