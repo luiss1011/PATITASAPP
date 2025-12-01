@@ -93,3 +93,83 @@ async function eliminarMascota(id) {
     }
   });
 }
+
+let intervaloRecordatorios = null;
+
+async function actualizarContadorRecordatorios() {
+  const token = localStorage.getItem("authToken");
+
+  if (!token) {
+    if (intervaloRecordatorios) {
+      clearInterval(intervaloRecordatorios);
+      intervaloRecordatorios = null;
+    }
+    return;
+  }
+
+  try {
+    const response = await fetch(`${CONFIG.API_BASE_URL}/recordatorios`, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+
+    if (response.status === 401) {
+      localStorage.clear();
+      window.location.replace("./login.html");
+      return;
+    }
+
+    const recordatorios = await response.json();
+    if (!Array.isArray(recordatorios)) return;
+
+    const pendientes = recordatorios.filter(r => !r.completado);
+    const contador = document.getElementById("contadorRecordatorios");
+    if (!contador) return;
+
+    contador.textContent = pendientes.length;
+
+  } catch (error) {
+    console.error("Error en contador de recordatorios:", error);
+  }
+}
+
+intervaloRecordatorios = setInterval(actualizarContadorRecordatorios, 60000);
+actualizarContadorRecordatorios();
+
+
+function cerrarSesion() {
+  Swal.fire({
+    title: "¿Cerrar sesión?",
+    text: "Tu sesión se cerrará de forma segura",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonText: "Sí, salir",
+    cancelButtonText: "Cancelar",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // ✅ BORRAR TODO LO SENSIBLE
+      localStorage.removeItem("authToken");
+      localStorage.clear();
+
+      // ✅ EVITA REGRESAR CON BOTÓN ATRÁS
+      window.location.replace("./login.html");
+    }
+  });
+}
+
+
+function toggleSeccion(id, header) {
+  const contenedor = document.getElementById(id);
+  const flecha = header.querySelector(".flecha");
+
+  if (!contenedor) return;
+
+  contenedor.classList.toggle("collapsed");
+  contenedor.classList.toggle("expanded");
+  flecha.classList.toggle("rotada");
+}
+
+// ✅ ABRIR AMBAS POR DEFECTO AL CARGAR
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("mascotas-contenido")?.classList.add("expanded");
+  document.getElementById("citas-futuras")?.classList.add("expanded");
+});

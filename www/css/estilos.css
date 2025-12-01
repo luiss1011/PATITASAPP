@@ -2542,3 +2542,65 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--primary-dark);
 }
+
+.toggle-citas {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.citas-collapsed {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.citas-expanded {
+  max-height: 3000px;
+  transition: max-height 0.4s ease;
+}
+
+.flecha-futuras,
+.flecha-pasadas {
+  transition: transform 0.3s ease;
+}
+
+.flecha-rotada {
+  transform: rotate(180deg);
+}
+
+
+.toggle-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+}
+
+.toggle-content {
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  max-height: 2000px;
+  opacity: 1;
+}
+
+.toggle-content.collapsed {
+  max-height: 0;
+  opacity: 0;
+}
+
+.toggle-content.expanded {
+  max-height: 2000px;
+  opacity: 1;
+}
+
+.flecha {
+  transition: transform 0.3s ease;
+}
+
+.flecha.rotada {
+  transform: rotate(-180deg);
+}

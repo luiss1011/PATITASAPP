@@ -30,8 +30,10 @@
                 <a class="nav-link" href="./perfil.html"><i class="bi bi-person-circle"></i> Perfil</a>
             </li>
             <li class="nav-item menu-item menu-item-logout">
-                <a class="nav-link" href="./login.html"><i class="bi bi-box-arrow-right"></i> Cerrar Sesión</a>
-            </li>
+                <a class="nav-link" href="#" onclick="cerrarSesion()">
+                  <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+                </a>
+              </li>
           </div>
 
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,9 +60,8 @@
                     <li class="nav-item menu-item">
                         <a class="nav-link" href="./citas.html"><i class="bi bi-calendar-check"></i> Citas</a>
                     </li>
-                    <li class="nav-item menu-item">
-                            <a class="nav-link" href="./pages/recordatorios.html"><i class="bi bi-bell"></i>
-                                Recordatorios</a>
+                    <li class="nav-item menu-item" ">
+                            <a class="nav-link bi bi-bell" href="./recordatorios.html">Recordatorios<span id="contadorRecordatorios" class="badge bg-danger">0</span> </a> 
                         </li>
                     <li class="nav-item menu-item">
                         <a class="nav-link" href="./contacto.html"><i class="bi bi-telephone"></i> Contacto</a>
@@ -68,9 +69,11 @@
                     <li class="nav-item menu-item menu-item-perfil d-lg-none">
                         <a class="nav-link" href="./perfil.html"><i class="bi bi-person-circle"></i> Perfil</a>
                     </li>
-                    <li class="nav-item menu-item menu-item-logout d-lg-none">
-                        <a class="nav-link" href="./login.html"><i class="bi bi-box-arrow-right"></i> Cerrar Sesión</a>
-                    </li>
+                    <li class="nav-item menu-item menu-item-logout">
+                <a class="nav-link" href="#" onclick="cerrarSesion()">
+                  <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+                </a>
+              </li>
                 </ul>
 
                 <div class="redes">
@@ -105,8 +108,8 @@
     <a href="../#inicio" class="btn-flotante-inicio" title="Regresar al inicio">
         <i class="bi bi-house-fill"></i>
     </a>
-
-    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/api.js"></script>
       <script src="../js/bootstrap.bundle.min.js"></script>
   </body>  
   </html>
