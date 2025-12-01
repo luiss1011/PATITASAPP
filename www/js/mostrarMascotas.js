@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 <p><i class="bi bi-file-medical"></i> <strong>Notas:</strong> ${
                   m.notas || "Sin notas"
                 }</p>
-                <button class="btn-eliminar" data-id="${m._id}">
+                <button class="btn btn-danger" data-id="${m._id}">
                   🗑 Eliminar
                 </button>
             </div>
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 document.addEventListener("click", async (e) => {
-  if (e.target.classList.contains("btn-eliminar")) {
+  if (e.target.classList.contains("btn-danger")) {
     const mascotaId = e.target.dataset.id;
 
     const confirm = await Swal.fire({
@@ -123,7 +123,7 @@ async function cargarMascotas() {
                 <p><i class="bi bi-shield-check"></i> <strong>Última vacuna:</strong> ${formatearFecha(m.vacunas)}</p>
                 <p><i class="bi bi-file-medical"></i> <strong>Notas:</strong> ${m.notas || "Sin notas"}</p>
 
-                <button class="btn-eliminar" data-id="${m._id}">
+                <button class="btn btn-danger" data-id="${m._id}">
                   🗑 Eliminar
                 </button>
             </div>
