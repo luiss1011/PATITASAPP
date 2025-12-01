@@ -59,9 +59,8 @@
                         <li class="nav-item menu-item">
                             <a class="nav-link" href="./pages/citas.html"><i class="bi bi-calendar-check"></i> Citas</a>
                         </li>
-                        <li class="nav-item menu-item">
-                            <a class="nav-link" href="./pages/recordatorios.html"><i class="bi bi-bell"></i>
-                                Recordatorios</a>
+                        <li class="nav-item menu-item" ">
+                            <a class="nav-link bi bi-bell" href="./pages/recordatorios.html">Recordatorios<span id="contadorRecordatorios" class="badge bg-danger">0</span> </a> 
                         </li>
                         <li class="nav-item menu-item">
                             <a class="nav-link" href="./pages/contacto.html"><i class="bi bi-telephone"></i> Contacto</a>
@@ -70,7 +69,9 @@
                             <a class="nav-link" href="./pages/perfil.html"><i class="bi bi-person-circle"></i> Perfil</a>
                         </li>
                         <li class="nav-item menu-item menu-item-logout d-lg-none">
-                            <a class="nav-link" href="./pages/login.html"><i class="bi bi-box-arrow-right"></i> Cerrar Sesión</a>
+                            <a class="nav-link" href="#" onclick="cerrarSesionIndex()">
+                            <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+                            </a>
                         </li>
                     </ul>
 
@@ -105,24 +106,32 @@
         
         <!-- Nuevas Secciones - Mis Mascotas y Citas -->
         <div class="mascotas-section loading-fade">
-            <h3><i class="bi bi-heart-fill"></i> Mis Mascotas</h3>
-            
-            <!-- mostrar lista de mascotas -->
-            <div id="lista-mascotas"></div>
+            <h3 class="toggle-header" onclick="toggleSeccion('mascotas-contenido', this)">
+            <i class="bi bi-heart-fill"></i> Mis Mascotas
+            <i class="bi bi-chevron-down flecha"></i>
+            </h3>
 
-            <a href="./pages/nueva-mascota.html" class="btn-agregar" style="text-decoration: none; display: inline-block;">
-                <i class="bi bi-plus-circle"></i> Agregar Mascota
-            </a>
-        </div>
+            <div id="mascotas-contenido" class="toggle-content expanded">
+                <div id="lista-mascotas"></div>
+
+                <a href="./pages/nueva-mascota.html" class="btn-agregar" style="text-decoration: none;">
+                    <i class="bi bi-plus-circle"></i> Agregar Mascota
+                </a>
+            </div>
+
 
         <div class="citas-section loading-fade">
-            <h3><i class="bi bi-calendar-check-fill"></i> Próximas Citas</h3>
-        
-                <div id="citas-futuras"></div>
-            
-            <a href="./pages/nueva-cita.html" class="btn-agregar" style="text-decoration: none; display: inline-block;">
-                <i class="bi bi-plus-circle"></i> Agendar Nueva Cita
+            <h3 class="toggle-header" onclick="toggleSeccion('citas-futuras', this)">
+            <i class="bi bi-calendar-check-fill"></i> Próximas Citas
+            <i class="bi bi-chevron-down flecha"></i>
+            </h3>
+
+            <div id="citas-futuras" class="toggle-content expanded"></div>
+
+            <a href="./pages/nueva-cita.html" class="btn-agregar" style="text-decoration: none;">
+            <i class="bi bi-plus-circle"></i> Agendar Nueva Cita
             </a>
+
             
             <!-- Información adicional después de Agendar Cita -->
             <div class="info-citas loading-fade">

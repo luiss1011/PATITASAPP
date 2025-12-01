@@ -2,6 +2,31 @@ document.addEventListener("DOMContentLoaded", async () => {
   await cargarCitas();
   await cargarMascotas();
   inicializarFormulario();
+
+  const btnFuturas = document.getElementById("btnToggleFuturas");
+  const contFuturas = document.getElementById("citas-futuras");
+  const flechaFuturas = document.querySelector(".flecha-futuras");
+
+  const btnPasadas = document.getElementById("btnTogglePasadas");
+  const contPasadas = document.getElementById("citas-pasadas");
+  const flechaPasadas = document.querySelector(".flecha-pasadas");
+
+  if (btnFuturas && contFuturas) {
+    btnFuturas.addEventListener("click", () => {
+      contFuturas.classList.toggle("citas-expanded");
+      contFuturas.classList.toggle("citas-collapsed");
+      flechaFuturas.classList.toggle("flecha-rotada");
+    });
+  }
+
+  if (btnPasadas && contPasadas) {
+    btnPasadas.addEventListener("click", () => {
+      contPasadas.classList.toggle("citas-expanded");
+      contPasadas.classList.toggle("citas-collapsed");
+      flechaPasadas.classList.toggle("flecha-rotada");
+    });
+  }
+
 });
 
 async function cargarMascotas() {
@@ -85,77 +110,52 @@ async function cargarCitas() {
   const contFuturas = document.getElementById("citas-futuras");
   const contPasadas = document.getElementById("citas-pasadas");
 
-  // Si no existe el contenedor de futuras, no hacemos nada
   if (!contFuturas) return;
 
   try {
     const data = await obtenerMisCitas();
 
-    const futuras = data.futuras || [];
-    const pasadas = data.pasadas || [];
+    const futuras = Array.isArray(data.futuras) ? data.futuras : [];
+    const pasadas = Array.isArray(data.pasadas) ? data.pasadas : [];
 
     contFuturas.innerHTML = "";
     if (contPasadas) contPasadas.innerHTML = "";
 
-    // Cargar futuras
+    // ✅ Cargar FUTURAS
     futuras.forEach((cita) => {
       contFuturas.innerHTML += crearCardCita(cita, false);
     });
 
-    // Cargar pasadas solo si existe la sección
+    // ✅ Cargar PASADAS
     if (contPasadas) {
       pasadas.forEach((cita) => {
         contPasadas.innerHTML += crearCardCita(cita, true);
       });
     }
+
+    // ✅ Mensajes si no hay citas
+    if (futuras.length === 0) {
+      contFuturas.innerHTML = "<p class='text-muted'>No hay próximas citas.</p>";
+    }
+
+    if (pasadas.length === 0 && contPasadas) {
+      contPasadas.innerHTML = "<p class='text-muted'>No hay citas pasadas.</p>";
+    }
+
+    // ✅ ABRIR FUTURAS POR DEFECTO
+    contFuturas.classList.add("citas-expanded");
+    contFuturas.classList.remove("citas-collapsed");
+
+    const flechaFuturas = document.querySelector(".flecha-futuras");
+    if (flechaFuturas) {
+      flechaFuturas.classList.add("flecha-rotada");
+    }
+
   } catch (error) {
     console.error("Error cargando citas:", error);
   }
 }
 
-// function crearCardCita(cita, pasada = false) {
-//   const fecha = new Date(cita.date);
-//   const fechaTexto = fecha.toLocaleDateString("es-ES", {
-//     day: "2-digit",
-//     month: "short",
-//     year: "numeric",
-//   });
-
-//   const horaTexto = fecha.toLocaleTimeString("es-ES", {
-//     hour: "2-digit",
-//     minute: "2-digit",
-//   });
-
-//   return `
-//     <div class="cita-card loading-fade">
-//       <div class="cita-card-header">
-//           <h4><i class="bi bi-calendar-event"></i> ${cita.service}</h4>
-//           <span class="badge ${pasada ? "bg-secondary" : "bg-primary"}">
-//             ${fechaTexto}
-//           </span>
-//       </div>
-//       <div class="cita-card-body">
-//           <p><i class="bi bi-clock"></i> <strong>Hora:</strong> ${horaTexto}</p>
-//           <p><i class="bi bi-person"></i> <strong>Mascota:</strong> ${
-//             cita.mascota?.nombreMascota || "Sin nombre"
-//           }</p>
-//           <p><i class="bi bi-info-circle"></i> <strong>Motivo:</strong> ${
-//             cita.motivo
-//           }</p>
-//           ${
-//             cita.veterinario
-//               ? `<p><i class="bi bi-person-badge"></i> <strong>Veterinario:</strong> ${cita.veterinario}</p>`
-//               : ""
-//           }
-//           ${
-//             pasada
-//               ? `<p><i class="bi bi-check-circle"></i> <strong>Estado:</strong> Completada</p>`
-//               : ""
-//           }
-//       </div>
-//     </div>
-//   `;
-// }
 
 function crearCardCita(cita, pasada = false) {
   const fecha = new Date(cita.date);
