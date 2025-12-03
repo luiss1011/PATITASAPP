@@ -27,8 +27,10 @@
                         <a class="nav-link" href="./perfil.html"><i class="bi bi-person-circle"></i> Perfil</a>
                     </li>
                     <li class="nav-item menu-item menu-item-logout">
-                        <a class="nav-link" href="./login.html"><i class="bi bi-box-arrow-right"></i> Cerrar Sesión</a>
-                    </li>
+                <a class="nav-link" href="#" onclick="cerrarSesion()">
+                  <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+                </a>
+              </li>
                 </div>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -57,19 +59,21 @@
                         <li class="nav-item menu-item">
                             <a class="nav-link" href="./citas.html"><i class="bi bi-calendar-check"></i> Citas</a>
                         </li>
-                        <li class="nav-item menu-item activo">
-                            <a class="nav-link" href="./recordatorios.html"><i class="bi bi-bell"></i> Recordatorios</a>
+                        <li class="nav-item menu-item" ">
+                            <a class="nav-link bi bi-bell" href="./recordatorios.html">Recordatorios<span id="contadorRecordatorios" class="badge bg-danger">0</span> </a> 
                         </li>
+
                         <li class="nav-item menu-item ">
                             <a class="nav-link" href="./contacto.html"><i class="bi bi-telephone"></i> Contacto</a>
                         </li>
                         <li class="nav-item menu-item menu-item-perfil d-lg-none">
                             <a class="nav-link" href="./perfil.html"><i class="bi bi-person-circle"></i> Perfil</a>
                         </li>
-                        <li class="nav-item menu-item menu-item-logout d-lg-none">
-                            <a class="nav-link" href="./login.html"><i class="bi bi-box-arrow-right"></i> Cerrar
-                                Sesión</a>
-                        </li>
+                        <li class="nav-item menu-item menu-item-logout">
+                <a class="nav-link" href="#" onclick="cerrarSesion()">
+                  <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+                </a>
+              </li>
                     </ul>
                     <div class="redes">
                         <ul class="redes-list">
@@ -94,45 +98,8 @@
             <div class="citas-section">
                 <h3><i class="bi bi-bell"></i> Próximos Recordatorios</h3>
 
-                <div class="cita-card loading-fade">
-                    <div class="cita-card-header">
-                        <h4><i class="bi bi-eyedropper"></i> Vacuna Antirrábica</h4>
-                        <span class="badge bg-danger">Urgente</span>
-                    </div>
-                    <div class="cita-card-body">
-                        <p><i class="bi bi-calendar-event"></i> <strong>Fecha límite:</strong> 20 Feb 2025</p>
-                        <p><i class="bi bi-person"></i> <strong>Mascota:</strong> Max</p>
-                        <p><i class="bi bi-info-circle"></i> <strong>Nota:</strong> Recordar traer carnet de vacunación.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="cita-card loading-fade">
-                    <div class="cita-card-header">
-                        <h4><i class="bi bi-scissors"></i> Baño y Corte</h4>
-                        <span class="badge bg-warning text-dark">Pendiente</span>
-                    </div>
-                    <div class="cita-card-body">
-                        <p><i class="bi bi-calendar-event"></i> <strong>Sugerido:</strong> 25 Feb 2025</p>
-                        <p><i class="bi bi-person"></i> <strong>Mascota:</strong> Luna</p>
-                        <p><i class="bi bi-info-circle"></i> <strong>Nota:</strong> Preguntar por shampoo
-                            hipoalergénico.</p>
-                    </div>
-                </div>
-
-                <div class="cita-card loading-fade">
-                    <div class="cita-card-header">
-                        <h4><i class="bi bi-capsule"></i> Desparasitación</h4>
-                        <span class="badge bg-success">Programado</span>
-                    </div>
-                    <div class="cita-card-body">
-                        <p><i class="bi bi-calendar-event"></i> <strong>Fecha:</strong> 01 Mar 2025</p>
-                        <p><i class="bi bi-person"></i> <strong>Mascota:</strong> Todos</p>
-                        <p><i class="bi bi-info-circle"></i> <strong>Nota:</strong> Comprar pastillas en la veterinaria.
-                        </p>
-                    </div>
-                </div>
-
+                <div id="listaRecordatorios"></div>
+                
                 <a href="./nuevo-recordatorio.html" class="btn-agregar"
                     style="text-decoration: none; width: 100%; justify-content: center; margin-top: 2rem;">
                     <i class="bi bi-plus-circle"></i> Agregar Nuevo Recordatorio
@@ -142,6 +109,11 @@
     </section>
 
     <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/config.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/recordatorio.js"></script>
+
 </body>
 
 </html>

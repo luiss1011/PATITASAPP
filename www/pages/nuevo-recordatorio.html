@@ -25,8 +25,10 @@
                         <a class="nav-link" href="./perfil.html"><i class="bi bi-person-circle"></i> Perfil</a>
                     </li>
                     <li class="nav-item menu-item menu-item-logout">
-                        <a class="nav-link" href="./login.html"><i class="bi bi-box-arrow-right"></i> Cerrar Sesión</a>
-                    </li>
+                <a class="nav-link" href="#" onclick="cerrarSesion()">
+                  <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+                </a>
+              </li>
                 </div>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -55,8 +57,8 @@
                         <li class="nav-item menu-item">
                             <a class="nav-link" href="./citas.html"><i class="bi bi-calendar-check"></i> Citas</a>
                         </li>
-                        <li class="nav-item menu-item activo">
-                            <a class="nav-link" href="./recordatorios.html"><i class="bi bi-bell"></i> Recordatorios</a>
+                        <li class="nav-item menu-item" ">
+                            <a class="nav-link bi bi-bell" href="./recordatorios.html">Recordatorios<span id="contadorRecordatorios" class="badge bg-danger">0</span> </a> 
                         </li>
                         <li class="nav-item menu-item ">
                             <a class="nav-link" href="./contacto.html"><i class="bi bi-telephone"></i> Contacto</a>
@@ -64,10 +66,11 @@
                         <li class="nav-item menu-item menu-item-perfil d-lg-none">
                             <a class="nav-link" href="./perfil.html"><i class="bi bi-person-circle"></i> Perfil</a>
                         </li>
-                        <li class="nav-item menu-item menu-item-logout d-lg-none">
-                            <a class="nav-link" href="./login.html"><i class="bi bi-box-arrow-right"></i> Cerrar
-                                Sesión</a>
-                        </li>
+                        <li class="nav-item menu-item menu-item-logout">
+                <a class="nav-link" href="#" onclick="cerrarSesion()">
+                  <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+                </a>
+              </li>
                     </ul>
                     <div class="redes">
                         <ul class="redes-list">
@@ -101,9 +104,6 @@
                         <label for="mascota"><i class="bi bi-heart"></i> Mascota</label>
                         <select id="mascota" name="mascota" required>
                             <option value="">Selecciona una mascota...</option>
-                            <option value="max">Max - Labrador Retriever</option>
-                            <option value="luna">Luna - Persa</option>
-                            <option value="todos">Todas mis mascotas</option>
                         </select>
                     </div>
 
@@ -148,27 +148,9 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const form = document.getElementById('nuevoRecordatorioForm');
-
-            form.addEventListener('submit', function (e) {
-                e.preventDefault();
-
-                // Aquí iría la lógica para guardar el recordatorio
-
-                Swal.fire({
-                    icon: 'success',
-                    title: '¡Recordatorio Guardado!',
-                    text: 'Te avisaremos cuando llegue el momento.',
-                    confirmButtonColor: '#2C5F7C',
-                    confirmButtonText: 'Entendido'
-                }).then(() => {
-                    window.location.href = './recordatorios.html';
-                });
-            });
-        });
-    </script>
+    <script src="../js/config.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/nuevo-recordatorio.js"></script>
 </body>
 
 </html>
