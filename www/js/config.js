@@ -5,8 +5,8 @@ const CONFIG = {
   // - En dispositivo físico: usa la IP de tu máquina (no localhost)
   // - En producción: usa tu dominio y HTTPS
 
-  API_BASE_URL: 'https://fit-batch-receiver-howto.trycloudflare.com/api', // CAMBIA ESTA IP
-  // API_BASE_URL: 'http://localhost:3000/api',   // producción
+  // API_BASE_URL: 'https://fit-batch-receiver-howto.trycloudflare.com/api', // CAMBIA ESTA IP
+   API_BASE_URL: 'http://localhost:3000/api',   // producción
 };
 
 // 👇 Opcional: detectar si es Cordova (dispositivo real)

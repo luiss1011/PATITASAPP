@@ -84,17 +84,44 @@ async function cargarCitas() {
 // ============================
 
 async function aceptarCita(id) {
-  if (!confirm("¿Deseas aceptar esta cita?")) return;
-
-  await apiRequest(`/appointments/${id}/accept`, {
-    method: "PUT",
-    headers: {
-      "Authorization": "Bearer " + localStorage.getItem("authToken")
-    }
+  const result = await Swal.fire({
+    title: "¿Confirmar cita?",
+    text: "Se notificará al cliente por correo",
+    icon: "question",
+    showCancelButton: true,
+    confirmButtonText: "Sí, confirmar",
+    cancelButtonText: "Cancelar"
   });
 
-  cargarCitas();
+  if (!result.isConfirmed) return;
+
+  try {
+    await apiRequest(`/appointments/${id}/accept`, {
+      method: "PUT",
+      headers: {
+        "Authorization": "Bearer " + localStorage.getItem("authToken")
+      }
+    });
+
+    Swal.fire({
+      icon: "success",
+      title: "Cita confirmada",
+      text: "Correo enviado correctamente",
+      timer: 2000,
+      showConfirmButton: false
+    });
+
+    cargarCitas();
+
+  } catch (error) {
+    Swal.fire({
+      icon: "error",
+      title: "Error",
+      text: "No se pudo confirmar la cita"
+    });
+  }
 }
+
 
 
 // ============================
@@ -102,17 +129,44 @@ async function aceptarCita(id) {
 // ============================
 
 async function rechazarCita(id) {
-  if (!confirm("¿Deseas rechazar esta cita?")) return;
-
-  await apiRequest(`/appointments/${id}/reject`, {
-    method: "PUT",
-    headers: {
-      "Authorization": "Bearer " + localStorage.getItem("authToken")
-    }
+  const result = await Swal.fire({
+    title: "¿Rechazar cita?",
+    text: "Esta acción no se puede deshacer",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonText: "Sí, rechazar",
+    cancelButtonText: "Cancelar"
   });
 
-  cargarCitas();
+  if (!result.isConfirmed) return;
+
+  try {
+    await apiRequest(`/appointments/${id}/reject`, {
+      method: "PUT",
+      headers: {
+        "Authorization": "Bearer " + localStorage.getItem("authToken")
+      }
+    });
+
+    Swal.fire({
+      icon: "success",
+      title: "Cita cancelada",
+      text: "Se notificó al cliente por correo",
+      timer: 2000,
+      showConfirmButton: false
+    });
+
+    cargarCitas();
+
+  } catch (error) {
+    Swal.fire({
+      icon: "error",
+      title: "Error",
+      text: "No se pudo cancelar la cita"
+    });
+  }
 }
+
 
 
 // ============================

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/vete-logo (1).png" type="image/png">
+    <title>Veterinaria Patitas - Recordatorios</title>
+    <meta name="description" content="Gestiona tus recordatorios de salud">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/estilos.css">
+</head>
+
+<body>
+    <header class="encabezado">
+        <nav class="navbar navbar-expand-lg custom-bar ">
+            <div class="container-fluid navbarra">
+                <a class="navbar-brand" href="../#inicio"><img class="logo-imagen" src="../img/vete-logo.png"
+                        alt="logo vete"></a>
+
+                <div class="navbar-top d-none d-lg-flex">
+                    <li class="nav-item menu-item menu-item-perfil">
+                        <a class="nav-link" href="./perfil.html"><i class="bi bi-person-circle"></i> Perfil</a>
+                    </li>
+                    <li class="nav-item menu-item menu-item-logout">
+                        <a class="nav-link" href="./login.html"><i class="bi bi-box-arrow-right"></i> Cerrar Sesión</a>
+                    </li>
+                </div>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav menu">
+                        <li class="nav-item menu-item">
+                            <a class="nav-link" aria-current="page" href="../#inicio"><i class="bi bi-house"></i>
+                                Inicio</a>
+                        </li>
+                        <li class="nav-item menu-item">
+                            <a class="nav-link texto" href="./nosotros.html"><i class="bi bi-people"></i> Nosotros</a>
+                        </li>
+                        <li class="nav-item menu-item">
+                            <a class="nav-link" href="./productos.html"><i class="bi bi-bag"></i> Productos</a>
+                        </li>
+                        <li class="nav-item menu-item">
+                            <a class="nav-link" href="./servicios.html"><i class="bi bi-heart-pulse"></i> Servicios</a>
+                        </li>
+                        <li class="nav-item menu-item">
+                            <a class="nav-link" href="./mascotas.html"><i class="bi bi-heart"></i> Mis Mascotas</a>
+                        </li>
+                        <li class="nav-item menu-item">
+                            <a class="nav-link" href="./citas.html"><i class="bi bi-calendar-check"></i> Citas</a>
+                        </li>
+                        <li class="nav-item menu-item activo">
+                            <a class="nav-link" href="./recordatorios.html"><i class="bi bi-bell"></i> Recordatorios</a>
+                        </li>
+                        <li class="nav-item menu-item ">
+                            <a class="nav-link" href="./contacto.html"><i class="bi bi-telephone"></i> Contacto</a>
+                        </li>
+                        <li class="nav-item menu-item menu-item-perfil d-lg-none">
+                            <a class="nav-link" href="./perfil.html"><i class="bi bi-person-circle"></i> Perfil</a>
+                        </li>
+                        <li class="nav-item menu-item menu-item-logout d-lg-none">
+                            <a class="nav-link" href="./login.html"><i class="bi bi-box-arrow-right"></i> Cerrar
+                                Sesión</a>
+                        </li>
+                    </ul>
+                    <div class="redes">
+                        <ul class="redes-list">
+                            <li class="redes-item"><a target="_blank" href=""><i class="bi bi-instagram"></i></a></li>
+                            <li class="redes-item"><a target="_blank" href=""><i class="bi bi-facebook"></i></a></li>
+                            <li class="redes-item"><a target="_blank" href=""><i class="bi bi-whatsapp"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="titulo-pagina container-fluid">
+        <div class="container align-content-center justify-content-center ">
+            <h2><i class="bi bi-bell-fill"></i> Recordatorios</h2>
+        </div>
+    </section>
+
+    <section class="contenido-flex">
+        <section class="contenido container-xl">
+            <div class="citas-section">
+                <h3><i class="bi bi-bell"></i> Próximos Recordatorios</h3>
+
+                <div class="cita-card loading-fade">
+                    <div class="cita-card-header">
+                        <h4><i class="bi bi-eyedropper"></i> Vacuna Antirrábica</h4>
+                        <span class="badge bg-danger">Urgente</span>
+                    </div>
+                    <div class="cita-card-body">
+                        <p><i class="bi bi-calendar-event"></i> <strong>Fecha límite:</strong> 20 Feb 2025</p>
+                        <p><i class="bi bi-person"></i> <strong>Mascota:</strong> Max</p>
+                        <p><i class="bi bi-info-circle"></i> <strong>Nota:</strong> Recordar traer carnet de vacunación.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="cita-card loading-fade">
+                    <div class="cita-card-header">
+                        <h4><i class="bi bi-scissors"></i> Baño y Corte</h4>
+                        <span class="badge bg-warning text-dark">Pendiente</span>
+                    </div>
+                    <div class="cita-card-body">
+                        <p><i class="bi bi-calendar-event"></i> <strong>Sugerido:</strong> 25 Feb 2025</p>
+                        <p><i class="bi bi-person"></i> <strong>Mascota:</strong> Luna</p>
+                        <p><i class="bi bi-info-circle"></i> <strong>Nota:</strong> Preguntar por shampoo
+                            hipoalergénico.</p>
+                    </div>
+                </div>
+
+                <div class="cita-card loading-fade">
+                    <div class="cita-card-header">
+                        <h4><i class="bi bi-capsule"></i> Desparasitación</h4>
+                        <span class="badge bg-success">Programado</span>
+                    </div>
+                    <div class="cita-card-body">
+                        <p><i class="bi bi-calendar-event"></i> <strong>Fecha:</strong> 01 Mar 2025</p>
+                        <p><i class="bi bi-person"></i> <strong>Mascota:</strong> Todos</p>
+                        <p><i class="bi bi-info-circle"></i> <strong>Nota:</strong> Comprar pastillas en la veterinaria.
+                        </p>
+                    </div>
+                </div>
+
+                <a href="./nuevo-recordatorio.html" class="btn-agregar"
+                    style="text-decoration: none; width: 100%; justify-content: center; margin-top: 2rem;">
+                    <i class="bi bi-plus-circle"></i> Agregar Nuevo Recordatorio
+                </a>
+            </div>
+        </section>
+    </section>
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
