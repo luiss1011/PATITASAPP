@@ -1,0 +1,27 @@
+{
+  "name": "com.veterinaria.app",
+  "displayName": "App Veterinaria",
+  "version": "1.0.0",
+  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "browser-sync start --server www --files 'www/**/*.*'"
+  },
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "author": "Apache Cordova Team",
+  "license": "Apache-2.0",
+  "cordova": {
+    "platforms": []
+  },
+  "dependencies": {
+    "cordova-plugin-browsersync": "1.1.0"
+  },
+  "devDependencies": {
+    "cordova-android": "^14.0.1",
+    "cordova-browser": "^7.0.0",
+    "serve": "^14.2.5"
+  }
+}

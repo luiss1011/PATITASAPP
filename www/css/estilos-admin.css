@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;600;700&display=swap');
+
+:root {
+    --primary-color: #2C5F7C;
+    --secondary-color: #1a3d52;
+    --accent-color: #D4AF37;
+    --bg-color: #d5e9f1;
+    --text-color: #333;
+    --white: #ffffff;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --card-bg: #ffffff;
+}
+
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Comfortaa', cursive;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Header & Navbar */
+.encabezado {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 0.5rem 0;
+}
+
+.navbar-brand .logo-imagen {
+    height: 55px;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.navbar-brand .logo-imagen:hover {
+    transform: scale(1.05);
+}
+
+.navbar-toggler {
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    color: var(--white);
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25);
+}
+
+.navbar-nav {
+    gap: 0.5rem;
+}
+
+.nav-item .nav-link {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-weight: 600;
+    padding: 0.7rem 1.2rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-item .nav-link:hover {
+    color: var(--white) !important;
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-1px);
+}
+
+.nav-item.active .nav-link {
+    color: var(--primary-color) !important;
+    background-color: var(--white);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.usuario-navbar {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-left: 1rem;
+}
+
+@media (max-width: 991px) {
+    .usuario-navbar {
+        margin-left: 0;
+        margin-top: 1rem;
+        width: fit-content;
+    }
+}
+
+/* Page Title */
+.titulo-pagina {
+    background: linear-gradient(to right, #bdd8e4, #d5e9f1);
+    padding: 3rem 1rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.titulo-pagina h2 {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 2.2rem;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+    animation: slideDown 0.8s ease-out;
+}
+
+/* Main Content */
+.contenido-flex {
+    flex: 1;
+    padding: 2rem 1rem;
+}
+
+.contenido {
+    background-color: var(--card-bg);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    padding: 2.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    animation: fadeIn 0.8s ease-out;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.section-header h3 {
+    color: var(--primary-color);
+    font-weight: 700;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.section-header i {
+    font-size: 1.8rem;
+    color: var(--accent-color);
+}
+
+/* Tables */
+.table-container {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    background: white;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.table thead {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.table thead th {
+    font-weight: 600;
+    padding: 1rem;
+    border: none;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.table tbody td {
+    padding: 1rem;
+    vertical-align: middle;
+    border-bottom: 1px solid #f0f0f0;
+    color: #555;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f8fbff;
+}
+
+/* Buttons & Actions */
+.btn-action {
+    padding: 0.4rem 0.8rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.btn-action:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Animations */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   RESPONSIVE DESIGN (Mobile First Approach)
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    /* Navbar adjustments */
+    .navbar-brand .logo-imagen {
+        height: 45px;
+    }
+
+    .encabezado {
+        padding: 0.25rem 0;
+    }
+
+    .navbar-toggler {
+        padding: 0.25rem 0.5rem;
+        font-size: 1rem;
+    }
+
+    .nav-item .nav-link {
+        padding: 0.5rem 1rem;
+        font-size: 0.95rem;
+    }
+
+    /* Typography adjustments */
+    .titulo-pagina {
+        padding: 2rem 1rem;
+    }
+
+    .titulo-pagina h2 {
+        font-size: 1.5rem;
+    }
+
+    .titulo-pagina p {
+        font-size: 0.9rem;
+    }
+
+    .section-header h3 {
+        font-size: 1.25rem;
+    }
+
+    .section-header i {
+        font-size: 1.5rem;
+    }
+
+    /* Content adjustments */
+    .contenido-flex {
+        padding: 1rem 0.5rem;
+    }
+
+    .contenido {
+        padding: 1.5rem 1rem;
+        border-radius: 15px;
+    }
+
+    /* Table adjustments for mobile */
+    .table thead th {
+        font-size: 0.9rem;
+        padding: 0.75rem;
+    }
+
+    .table tbody td {
+        font-size: 0.9rem;
+        padding: 0.75rem;
+    }
+
+    .btn-action {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+
+    /* Further adjustments for very small screens */
+    .titulo-pagina h2 {
+        font-size: 1.3rem;
+    }
+
+    .contenido {
+        padding: 1rem 0.75rem;
+    }
+
+    .usuario-navbar {
+        margin-top: 0.5rem;
+        width: 100%;
+        justify-content: center;
+    }
+}

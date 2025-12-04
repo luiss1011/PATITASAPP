@@ -1,0 +1,101 @@
+<section class="formulario container-fluid col" data-aos="fade-up">
+
+            
+    <h3 class="text-form">Cualquier duda o consulta que tenga nos la hace llegar mediante el formulario de contacto, muchas gracias, saludos Veterinaria.</h3>
+          
+          <form class="form gap-5" action="input" id="formularioContacto">
+
+            <iframe data-aos="fade-right" class="map-form col" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3701.234567890123!2d-102.29734567890123!3d21.87654321098765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8429ef1234567890%3A0xabcdef1234567890!2sVeterinaria%20Patitas%2C%20Aguascalientes!5e0!3m2!1ses!2smx!4v1234567890123!5m2!1ses!2smx" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+            <fieldset class="caja-formulario col" data-aos="fade-left">
+
+                <div class="grid-form">
+
+                    <div class="form-item na">
+                       
+                        <input name="NombreApellido" id="NombreApellido" type="text" placeholder="Nombre y apellido" required>
+                    </div>
+
+                    <div class="form-item mail">
+                        
+                        <input name="email" id="email" type="email" placeholder="Mail" required>
+                    </div>
+
+                    <div class="form-item tel">
+        
+                        <input name="telefono" id="telefono" type="tel" placeholder="Num. Telefono" required>
+                    </div>
+
+                    <div class="form-item tcons">
+                        
+                        <select name="tconsulta" id="tcons">
+                            <option value="cons0">Otros</option>
+                            <option value="cons1">Consulta Perro</option>
+                            <option value="cons2">Consulta Gato</option>
+                        </select>
+                    </div>
+        
+                    <div class="form-item cons">
+                     
+                        <textarea name="consulta" id="consulta" cols="1" rows="6" placeholder="Consulta" required></textarea>
+                    </div>
+
+                    <div class="form-item env">
+                
+                        <input type="submit" name="enviar" value="Enviar">
+                    </div>
+                </div> 
+            </fieldset>
+        </form>
+</section>   
+</section>
+<script src="../js/form-security.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('formularioContacto');
+        if (!form) return;
+        
+        // Inicializar validación en tiempo real
+        if (window.FormSecurity) {
+            window.FormSecurity.initRealTimeValidation('formularioContacto', {
+                NombreApellido: { type: 'name', required: true, label: 'Nombre y apellido' },
+                email: { type: 'email', required: true, label: 'Email' },
+                telefono: { type: 'phone', required: true, label: 'Teléfono' },
+                consulta: { type: 'text', required: true, label: 'Consulta', maxLength: 1000 }
+            });
+        }
+        
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validación de seguridad
+            if (window.FormSecurity) {
+                const validation = window.FormSecurity.validateForm('formularioContacto', {
+                    NombreApellido: { type: 'name', required: true, label: 'Nombre y apellido' },
+                    email: { type: 'email', required: true, label: 'Email' },
+                    telefono: { type: 'phone', required: true, label: 'Teléfono' },
+                    consulta: { type: 'text', required: true, label: 'Consulta', maxLength: 1000 }
+                });
+                
+                if (!validation.valid) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error de validación',
+                        html: validation.errors.join('<br>'),
+                        confirmButtonColor: '#2C5F7C'
+                    });
+                    return;
+                }
+            }
+            
+            Swal.fire({
+                icon: 'success',
+                title: '¡Consulta enviada!',
+                text: 'Gracias por contactarnos. Te responderemos pronto.',
+                confirmButtonColor: '#2C5F7C'
+            });
+            form.reset();
+        });
+    });
+</script>

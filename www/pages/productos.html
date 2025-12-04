@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veterinaria Duran - Productos</title>
+    <meta name="description" content="Mira todo lo que ofrecemos">
+    <meta name="keywords" content="Veterinaria, perros, gatos, hemogramas, salud animal, antiparasitarios, pulguicidas, garrapaticidas, analisis sanguineos, Mar del Plata">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- custom styles -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body>
+    <header class="encabezado">
+        <nav class="navbar navbar-expand-lg custom-bar ">
+            <div class="container-fluid navbarra">
+
+              <a class="navbar-brand" href="../#inicio"><img class="logo-imagen" src="../img/vete-logo.png" alt="logo vete"></a>
+              
+              <div class="navbar-top d-none d-lg-flex">
+                <li class="nav-item menu-item menu-item-perfil">
+                    <a class="nav-link" href="./perfil.html"><i class="bi bi-person-circle"></i> Perfil</a>
+                </li>
+                <li class="nav-item menu-item menu-item-logout">
+                    <a class="nav-link" href="./login.html"><i class="bi bi-box-arrow-right"></i> Cerrar Sesión</a>
+                </li>
+              </div>
+
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+                    <ul class="navbar-nav menu">
+                        <li class="nav-item  menu-item">
+                            <a class="nav-link" aria-current="page" href="../#inicio"><i class="bi bi-house"></i> Inicio</a>
+                        </li>
+                        <li class="nav-item  menu-item">
+                            <a class="nav-link texto" href="./nosotros.html"><i class="bi bi-people"></i> Nosotros</a>
+                        </li>
+                        <li class="nav-item activo menu-item">
+                            <a class="nav-link" href="./productos.html"><i class="bi bi-bag"></i> Productos</a>
+                        </li>
+                        <li class="nav-item menu-item">
+                            <a class="nav-link" href="./servicios.html"><i class="bi bi-heart-pulse"></i> Servicios</a>
+                        </li>
+                        <li class="nav-item menu-item">
+                            <a class="nav-link" href="./mascotas.html"><i class="bi bi-heart"></i> Mis Mascotas</a>
+                        </li>
+                        <li class="nav-item menu-item">
+                            <a class="nav-link" href="./citas.html"><i class="bi bi-calendar-check"></i> Citas</a>
+                        </li>
+                        <li class="nav-item menu-item ">
+                            <a class="nav-link" href="./contacto.html"><i class="bi bi-telephone"></i> Contacto</a>
+                        </li>
+                        <li class="nav-item menu-item menu-item-perfil d-lg-none">
+                            <a class="nav-link" href="./perfil.html"><i class="bi bi-person-circle"></i> Perfil</a>
+                        </li>
+                        <li class="nav-item menu-item menu-item-logout d-lg-none">
+                            <a class="nav-link" href="./login.html"><i class="bi bi-box-arrow-right"></i> Cerrar Sesión</a>
+                        </li>
+                    </ul>
+
+                    <div class="redes">
+                        <ul class="redes-list">   
+                            <li class="redes-item"><a target="_blank" href=""><i class="bi bi-instagram"></i></a></li> 
+                            <li class="redes-item"><a target="_blank" href=""><i class="bi bi-facebook"></i></a></li>
+                            <li class="redes-item"><a target="_blank" href=""><i class="bi bi-whatsapp"></i></a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <section class="titulo-pagina container-fluid">
+      <div class="container align-content-center justify-content-center ">
+        <h2><i class="bi bi-bag"></i> Productos</h2>
+      </div>
+    </section>
+
+<!-- Carrito de Compras Flotante -->
+<div class="carrito-flotante" id="carritoFlotante">
+    <div class="carrito-header">
+        <h4><i class="bi bi-cart"></i> Carrito de Compras</h4>
+        <button class="btn-cerrar-carrito" onclick="toggleCarrito()">
+            <i class="bi bi-x-lg"></i>
+        </button>
+    </div>
+    <div class="carrito-body">
+        <div class="carrito-vacio" id="carritoVacio">
+            <i class="bi bi-cart-x"></i>
+            <p>Tu carrito está vacío</p>
+        </div>
+        <div class="carrito-items" id="carritoItems">
+            <!-- Items se añadirán aquí dinámicamente -->
+        </div>
+    </div>
+    <div class="carrito-footer">
+        <div class="carrito-total">
+            <strong>Total: <span id="carritoTotal">$0.00</span></strong>
+        </div>
+        <button class="btn-checkout" onclick="procesarCompra()">
+            <i class="bi bi-bag-check"></i> Proceder con el pago
+        </button>
+    </div>
+</div>
+
+<!-- Botón flotante del carrito -->
+<button class="btn-carrito-fab" onclick="toggleCarrito()">
+    <i class="bi bi-cart"></i>
+    <span class="badge-carrito" id="badgeCarrito">0</span>
+</button>
+
+
+<section class="contenido-flex container-xxl">
+  <div class="row text-center pt-4">
+    <div class="col-12 text-prod">
+      <h3>Pidanos el medicamento o monodroga que necesite, con seña previa lo retira en 24hs. <br> Mas de 100 laboratorios en medicina veterinaria.</h3>
+    </div>
+  </div>
+</section>
+
+    <section class="contenido-flex">
+        <section class="contenido container-xl prod">
+            <div class="tarjeta-productos"> 
+                <div class="container text-center justify-content-center align-content-center">
+                    <div class="row pt-4 pb-4 px-3 g-4">
+                      <div class="col-md-6">
+                         <div class="card loading-fade">
+                                <img src="../img/alimentos-perro-amarilloverde.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Prescription Diet</h5>
+                                    <p class="card-text">Alimento medicado | perro</p>
+                                    <div class="card-precio">$1,250.00</div>
+                                    <div class="card-acciones">
+                                        <button type="button" class="btn btn-primary btn-sm" onclick="agregarAlCarrito('Prescription Diet', 1250, '../img/alimentos-perro-amarilloverde.jpg')">
+                                            <i class="bi bi-cart-plus"></i> Añadir
+                                        </button>
+                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="verDetalles('Prescription Diet')">
+                                            <i class="bi bi-info-circle"></i> Detalles
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      <div class="col-md-6">
+                        <div class="card loading-fade">
+                            <img src="../img/alimentos-perro-verderojo.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Royal Canin Veterinary Diet</h5>
+                                <p class="card-text">Alimento medicado | perro</p>
+                                <div class="card-precio">$1,250.00</div>
+                                <div class="card-acciones">
+                                    <button type="button" class="btn btn-primary btn-sm" onclick="agregarAlCarrito('Royal Canin Veterinary Diet', 1250, '../img/alimentos-perro-verderojo.jpg')">
+                                        <i class="bi bi-cart-plus"></i> Añadir
+                                    </button>
+                                    <button type="button" class="btn btn-outline-primary btn-sm" onclick="verDetalles('Royal Canin Veterinary Diet')">
+                                        <i class="bi bi-info-circle"></i> Detalles
+                                    </button>
+                                </div>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                <div class="container text-center justify-content-center align-content-center">
+                    <div class="row  pb-4 px-3 g-4 g-sm-4 gx-sm-4">
+                        <div class="col-md-3">
+                            <div class="card h-100 loading-fade">
+                                <img src="../img/alimentos-medicados-gato-verde.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                  <h5 class="card-title">Hill's Prescription Diet</h5>
+                                  <p class="card-text">Alimento medicado | gato</p>
+                                  <div class="card-precio">$1,180.00</div>
+                                  <div class="card-acciones">
+                                      <button type="button" class="btn btn-primary btn-sm" onclick="agregarAlCarrito('Hills Prescription Diet', 1180, '../img/alimentos-medicados-gato-verde.jpg')">
+                                          <i class="bi bi-cart-plus"></i> Añadir
+                                      </button>
+                                      <button type="button" class="btn btn-outline-primary btn-sm" onclick="verDetalles('Hills Prescription Diet')">
+                                          <i class="bi bi-info-circle"></i> Detalles
+                                      </button>
+                                  </div>
+                                </div>
+                              </div>
+                          </div>
+                          <div class="col-md-3">
+                            <div class="card h-100 loading-fade">
+                                <img src="../img/alimentos-medicados-gato-rosa.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                  <h5 class="card-title">Renal Support</h5>
+                                  <p class="card-text">Alimento medicado | gato</p>
+                                  <div class="card-precio">$1,180.00</div>
+                                  <div class="card-acciones">
+                                      <button type="button" class="btn btn-primary btn-sm" onclick="agregarAlCarrito('Renal Support', 1180, '../img/alimentos-medicados-gato-rosa.jpg')">
+                                          <i class="bi bi-cart-plus"></i> Añadir
+                                      </button>
+                                      <button type="button" class="btn btn-outline-primary btn-sm" onclick="verDetalles('Renal Support')">
+                                          <i class="bi bi-info-circle"></i> Detalles
+                                      </button>
+                                  </div>
+                                </div>
+                              </div>
+                          </div>
+                          <div class="col-md-3">
+                            <div class="card h-100 loading-fade">
+                                <img src="../img/alimentos-medicados-gato-purina.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                  <h5 class="card-title">Purina</h5>
+                                  <p class="card-text">Alimento medicado | gato</p>
+                                  <div class="card-precio">$1,350.00</div>
+                                  <div class="card-acciones">
+                                      <button type="button" class="btn btn-primary btn-sm" onclick="agregarAlCarrito('Purina Gato', 1350, '../img/alimentos-medicados-gato-purina.jpg')">
+                                          <i class="bi bi-cart-plus"></i> Añadir
+                                      </button>
+                                      <button type="button" class="btn btn-outline-primary btn-sm" onclick="verDetalles('Purina Gato')">
+                                          <i class="bi bi-info-circle"></i> Detalles
+                                      </button>
+                                  </div>
+                                </div>
+                              </div>
+                          </div>
+                          <div class="col-md-3">
+                            <div class="card h-100 loading-fade">
+                                <img src="../img/alimentos-medicados-gato-amarillo.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                  <h5 class="card-title">Mv holliday</h5>
+                                  <p class="card-text">Alimento medicado | gato</p>
+                                  <div class="card-precio">$1,180.00</div>
+                                  <div class="card-acciones">
+                                      <button type="button" class="btn btn-primary btn-sm" onclick="agregarAlCarrito('Mv holliday Gato', 1180, '../img/alimentos-medicados-gato-amarillo.jpg')">
+                                          <i class="bi bi-cart-plus"></i> Añadir
+                                      </button>
+                                      <button type="button" class="btn btn-outline-primary btn-sm" onclick="verDetalles('Mv holliday Gato')">
+                                          <i class="bi bi-info-circle"></i> Detalles
+                                      </button>
+                                  </div>
+                                </div>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="container text-center justify-content-center align-content-center">
+                        <div class="row  pb-4 px-3 g-4">
+                            <div class="col-md-12">
+                                <div class="card h-100 loading-fade">
+                                    <img src="../img/ectopills.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                      <h5 class="card-title">EctoPills</h5>
+                                      <p class="card-text">Pulguicidas y garrapaticidas</p>
+                                      <div class="card-precio">$850.00</div>
+                                      <div class="card-acciones">
+                                          <button type="button" class="btn btn-primary btn-sm" onclick="agregarAlCarrito('EctoPills', 850, '../img/ectopills.jpg')">
+                                              <i class="bi bi-cart-plus"></i> Añadir
+                                          </button>
+                                          <button type="button" class="btn btn-outline-primary btn-sm" onclick="verDetalles('EctoPills')">
+                                              <i class="bi bi-info-circle"></i> Detalles
+                                          </button>
+                                      </div>
+                                    </div>
+                                  </div>
+                              </div>
+                          </div>
+    
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Carrito de compras
+        let carrito = [];
+        
+        function agregarAlCarrito(nombre, precio, imagen) {
+            carrito.push({ nombre, precio, imagen, cantidad: 1 });
+            actualizarCarrito();
+            
+            Swal.fire({
+                icon: 'success',
+                title: '¡Producto añadido!',
+                text: `${nombre} se ha añadido al carrito`,
+                confirmButtonColor: '#2C5F7C',
+                timer: 2000,
+                showConfirmButton: false,
+                toast: true,
+                position: 'bottom-end'
+            });
+        }
+        
+        function actualizarCarrito() {
+            const badge = document.getElementById('badgeCarrito');
+            const total = document.getElementById('carritoTotal');
+            const itemsContainer = document.getElementById('carritoItems');
+            const carritoVacio = document.getElementById('carritoVacio');
+            
+            badge.textContent = carrito.length;
+            
+            if (carrito.length === 0) {
+                carritoVacio.style.display = 'block';
+                itemsContainer.innerHTML = '';
+                total.textContent = '$0.00';
+            } else {
+                carritoVacio.style.display = 'none';
+                let html = '';
+                let totalPrecio = 0;
+                
+                carrito.forEach((item, index) => {
+                    totalPrecio += item.precio * item.cantidad;
+                    html += `
+                        <div class="carrito-item">
+                            <img src="${item.imagen}" alt="${item.nombre}">
+                            <div class="carrito-item-info">
+                                <h6>${item.nombre}</h6>
+                                <p>$${item.precio.toFixed(2)} x ${item.cantidad}</p>
+                            </div>
+                            <button onclick="eliminarDelCarrito(${index})" class="btn-eliminar">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </div>
+                    `;
+                });
+                
+                itemsContainer.innerHTML = html;
+                total.textContent = `$${totalPrecio.toFixed(2)}`;
+            }
+        }
+        
+        function eliminarDelCarrito(index) {
+            const item = carrito[index];
+            carrito.splice(index, 1);
+            actualizarCarrito();
+            
+            Swal.fire({
+                icon: 'info',
+                title: 'Producto eliminado',
+                text: `${item.nombre} se ha eliminado del carrito`,
+                confirmButtonColor: '#2C5F7C',
+                timer: 1500,
+                showConfirmButton: false,
+                toast: true,
+                position: 'bottom-end'
+            });
+        }
+        
+        function toggleCarrito() {
+            const carrito = document.getElementById('carritoFlotante');
+            carrito.classList.toggle('abierto');
+        }
+        
+        function procesarCompra() {
+            if (carrito.length === 0) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Carrito vacío',
+                    text: 'Agrega productos al carrito antes de continuar',
+                    confirmButtonColor: '#2C5F7C'
+                });
+                return;
+            }
+            
+            Swal.fire({
+                icon: 'success',
+                title: 'Producto comprado',
+                text: 'GRACIAS POR SU PREFERENCIA.',
+                confirmButtonColor: '#2C5F7C',
+                confirmButtonText: 'Entendido'
+            }).then(() => {
+                // Limpiar el carrito después de hacer clic en la alerta
+                carrito = [];
+                actualizarCarrito();
+            });
+        }
+        
+        function verDetalles(nombre) {
+            Swal.fire({
+                icon: 'info',
+                title: nombre,
+                html: `
+                    <p>Contacta vía WhatsApp para más información sobre este producto.</p>
+                    <a href="https://wa.me/524498975425" target="_blank" style="color: #25D366; text-decoration: none;">
+                        <i class="bi bi-whatsapp"></i> Contactar por WhatsApp
+                    </a>
+                `,
+                confirmButtonColor: '#2C5F7C',
+                confirmButtonText: 'Cerrar'
+            });
+        }
+    </script>
+</body>  
+</html>
